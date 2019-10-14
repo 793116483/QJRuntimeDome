@@ -70,17 +70,14 @@ void test(id self , SEL _cmd , NSNumber * number)
 }
 
 #pragma mark - ids 属性 关联
-static char NSMutableArrayIds = '\0' ;
 -(void)setIds:(NSString *)ids
 {
-    [self willChangeValueForKey:@"ids"];
-    objc_setAssociatedObject(self, &NSMutableArrayIds, ids, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self didChangeValueForKey:@"ids"];
+    objc_setAssociatedObject(self, @"ids", ids, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 -(NSString *)ids
 {
-    return objc_getAssociatedObject(self, &NSMutableArrayIds);
+    return objc_getAssociatedObject(self, @"ids");
 }
 
 @end
