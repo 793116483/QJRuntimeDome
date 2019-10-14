@@ -78,7 +78,7 @@
     // runtime 方法调用本质：就是用 objc_msgSend(id ,SEL); 发送消息
     // 发送一个消息，id(传self)指定谁发送消息 ，SEL: 被发送的消息
     // objc_getClass("UIView") 可以用 [UIView class] 代替
-    UIView * objc = objc_msgSend(objc_getClass("NSObject"), sel_registerName("alloc"));
+    UIView * objc = objc_msgSend(objc_getClass("UIView"), sel_registerName("alloc"));
     objc = objc_msgSend(objc, @selector(initWithFrame:),CGRectZero);
     
     [self useInCoding];
@@ -89,7 +89,8 @@
 //        NSLog(@"时间 = %@",timer);
 //    }) ;
 //    CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes);
-    
+    // 调用 NSMutableArray 对象 未实现的方法 test: ,动态创建一个函数与之关联
+    objc_msgSend([[NSMutableArray alloc] init], @selector(test:),@10);
 }
 
 
