@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableArray (MethodExchange)
+@interface NSMutableArray<ObjectType> (MethodExchange)
 
 @property (nonatomic , copy)NSString * ids ;
+-(void)qj_addObject:(ObjectType)object;
 
 @end

@@ -16,10 +16,14 @@
 {
     [super load];
     
-    // 交换方法
-    Method method1 = class_getInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(qj_addObject:));
-    Method method2 = class_getInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(addObject:));
+    // Class 的相关是用 objc 开头
+    // 方法代码块 交换：只是一个方法功能，所以用 method 开头
+    // Method 类或对象方法 是通过类的isa指针找，所以用 class_开头
+    Method method1 = class_getInstanceMethod(self, @selector(qj_addObject:));
+    Method method2 = class_getInstanceMethod(self, @selector(addObject:));
+    // 只能交换一次，不然又会变成方法本身 ，所以放在 +load 方法实现交换(+load方法在app起动时只调一次)
     method_exchangeImplementations(method1, method2);
+    
 }
 
 -(void)qj_addObject:(id)object
