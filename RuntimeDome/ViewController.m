@@ -11,7 +11,7 @@
 #import "QJCoderEntity.h"
 #import "NSMutableArray+MethodExchange.h"
 
-#import <objc/runtime.h>
+#import <objc/message.h>
 
 @interface ViewController ()<UITableViewDelegate>
 
@@ -55,6 +55,8 @@
     }
     free(methods);
     
+    IMP imp = method_getImplementation(class_getInstanceMethod([self class], @selector(viewWillAppear:)));
+    
     // 获取协议列表，如 protocolName = UITableViewDelegate
     __unsafe_unretained Protocol ** protocols = class_copyProtocolList([self class], &count);
     for (int index = 0; index < count; index++) {
@@ -72,9 +74,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // [[UIView alloc] initWithFrame:CGRectZero];
+    // runtime 方法调用本质：就是用 objc_msgSend(id ,SEL); 发送消息
+    // 发送一个消息，id(传self)指定谁发送消息 ，SEL: 被发送的消息
+    // objc_getClass("UIView") 可以用 [UIView class] 代替
+    UIView * objc = objc_msgSend(objc_getClass("NSObject"), sel_registerName("alloc"));
+    objc = objc_msgSend(objc, @selector(initWithFrame:),CGRectZero);
+    
     [self useInCoding];
     
     [self useInMethodExchangeAndConnected];
+    
+//    CFRunLoopTimerRef timer = CFRunLoopTimerCreateWithHandler(CFAllocatorGetDefault(), CFAbsoluteTimeGetCurrent(), 1.0, 10, 5, ^(CFRunLoopTimerRef timer) {
+//        NSLog(@"时间 = %@",timer);
+//    }) ;
+//    CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes);
+    
 }
 
 
