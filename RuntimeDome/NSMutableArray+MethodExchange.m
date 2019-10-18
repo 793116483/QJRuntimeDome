@@ -8,7 +8,7 @@
 
 #import "NSMutableArray+MethodExchange.h"
 
-#import <objc/runtime.h>
+#import <objc/message.h>
 
 @implementation NSMutableArray (MethodExchange)
 
