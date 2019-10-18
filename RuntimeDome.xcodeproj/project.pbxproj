@@ -18,6 +18,8 @@
 		F2ABC4271F02471D00008559 /* RuntimeDomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ABC4261F02471D00008559 /* RuntimeDomeTests.m */; };
 		F2ABC4321F02471D00008559 /* RuntimeDomeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ABC4311F02471D00008559 /* RuntimeDomeUITests.m */; };
 		F2ABC4411F02475400008559 /* QJCoderEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ABC4401F02475400008559 /* QJCoderEntity.m */; };
+		F2CD04A72359A82200BC15EA /* NSObject+QJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CD04A62359A82200BC15EA /* NSObject+QJExtension.m */; };
+		F2CD04AA2359ABE100BC15EA /* QJTestMode.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CD04A92359ABE100BC15EA /* QJTestMode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,10 @@
 		F2ABC4331F02471D00008559 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2ABC43F1F02475400008559 /* QJCoderEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QJCoderEntity.h; sourceTree = "<group>"; };
 		F2ABC4401F02475400008559 /* QJCoderEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJCoderEntity.m; sourceTree = "<group>"; };
+		F2CD04A52359A82200BC15EA /* NSObject+QJExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QJExtension.h"; sourceTree = "<group>"; };
+		F2CD04A62359A82200BC15EA /* NSObject+QJExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QJExtension.m"; sourceTree = "<group>"; };
+		F2CD04A82359ABE100BC15EA /* QJTestMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QJTestMode.h; sourceTree = "<group>"; };
+		F2CD04A92359ABE100BC15EA /* QJTestMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QJTestMode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,8 @@
 				F2984FF61F025DCF00E5F183 /* NSMutableArray+MethodExchange.m */,
 				F2ABC40F1F02471D00008559 /* ViewController.h */,
 				F2ABC4101F02471D00008559 /* ViewController.m */,
+				F2CD04A52359A82200BC15EA /* NSObject+QJExtension.h */,
+				F2CD04A62359A82200BC15EA /* NSObject+QJExtension.m */,
 			);
 			name = "test runtime";
 			sourceTree = "<group>";
@@ -125,6 +133,8 @@
 				F22B583F1F03482D0026A9D3 /* test runtime */,
 				F2ABC40C1F02471D00008559 /* AppDelegate.h */,
 				F2ABC40D1F02471D00008559 /* AppDelegate.m */,
+				F2CD04A82359ABE100BC15EA /* QJTestMode.h */,
+				F2CD04A92359ABE100BC15EA /* QJTestMode.m */,
 				F2ABC4121F02471D00008559 /* Main.storyboard */,
 				F2ABC4181F02471D00008559 /* Assets.xcassets */,
 				F2ABC41A1F02471D00008559 /* LaunchScreen.storyboard */,
@@ -303,7 +313,9 @@
 				F2ABC40E1F02471D00008559 /* AppDelegate.m in Sources */,
 				F2984FF71F025DCF00E5F183 /* NSMutableArray+MethodExchange.m in Sources */,
 				F2ABC4411F02475400008559 /* QJCoderEntity.m in Sources */,
+				F2CD04A72359A82200BC15EA /* NSObject+QJExtension.m in Sources */,
 				F2ABC40B1F02471D00008559 /* main.m in Sources */,
+				F2CD04AA2359ABE100BC15EA /* QJTestMode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

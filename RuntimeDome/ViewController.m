@@ -12,6 +12,8 @@
 #import "NSMutableArray+MethodExchange.h"
 
 #import <objc/message.h>
+#import "QJTestMode.h"
+#import "NSObject+QJExtension.h"
 
 @interface ViewController ()<UITableViewDelegate>
 
@@ -91,6 +93,27 @@
 //    CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, kCFRunLoopCommonModes);
     // 调用 NSMutableArray 对象 未实现的方法 test: ,动态创建一个函数与之关联
     objc_msgSend([[NSMutableArray alloc] init], @selector(test:),@10);
+    
+    
+    // 字典转模型测试
+    NSDictionary * dic = @{
+        @"isVip":@1,
+        @"count":@20,
+        @"name" : @"我的商品",
+        @"value": [NSValue valueWithCGSize:CGSizeMake(100, 100)],
+        @"error": @{@"msg":@"成功"},
+        @"message":@[@"纟有要求d",@"32领导撒酒疯"],
+        @"user" : @{
+                @"name":@"qj",
+                @"age":@"20",
+                @"dog":@{
+                        @"name":@"小黄",
+                        @"age":@10
+                }
+        }
+    };
+    QJTestMode * mode = [QJTestMode qj_modeWithDic:dic];
+    
 }
 
 

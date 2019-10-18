@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "73661018-F0F6-46A0-8A5C-2DBD34D24AFB"
-            shouldBeEnabled = "Yes"
+            uuid = "2DA6D758-B5DB-4EA6-A207-F724E4A2ED53"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RuntimeDome/NSMutableArray+MethodExchange.m"
+            filePath = "RuntimeDome/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "+resolveInstanceMethod:"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
