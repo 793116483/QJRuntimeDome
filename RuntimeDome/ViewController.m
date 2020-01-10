@@ -46,6 +46,12 @@
         NSString * key = [NSString stringWithUTF8String:ivar_getName(ivar)];
         NSLog(@"成员 key = %@",key);
     }
+    ivars = class_copyIvarList(class_getSuperclass([self class]), &count);
+    for (int index = 0; index < count; index++) {
+        Ivar ivar = ivars[index];
+        NSString * key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+        NSLog(@"父类成员 key = %@",key);
+    }
     free(ivars);
     
     // 获取对象方法列表
@@ -64,7 +70,7 @@
     for (int index = 0; index < count; index++) {
         Protocol * protocol = protocols[index];
         NSString * protocolName = [NSString stringWithUTF8String:protocol_getName(protocol)];
-        NSLog(@"协方 name = %@",protocolName);
+        NSLog(@"协义 name = %@",protocolName);
     }
     free(protocols);
     
@@ -121,6 +127,7 @@
 {
     QJCoderEntity * entity = [[QJCoderEntity alloc] init];
     entity.name = @"dsfdd";
+    entity.pro2 = 10.0 ;
     [entity save];
     entity = nil ;
     entity = [QJCoderEntity coderEntity];

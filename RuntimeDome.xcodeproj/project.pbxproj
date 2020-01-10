@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F22CDC9F23C8799500D6E12C /* NSObject+QJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F22CDC9E23C8799500D6E12C /* NSObject+QJCoding.m */; };
 		F2984FF71F025DCF00E5F183 /* NSMutableArray+MethodExchange.m in Sources */ = {isa = PBXBuildFile; fileRef = F2984FF61F025DCF00E5F183 /* NSMutableArray+MethodExchange.m */; };
 		F2ABC40B1F02471D00008559 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ABC40A1F02471D00008559 /* main.m */; };
 		F2ABC40E1F02471D00008559 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ABC40D1F02471D00008559 /* AppDelegate.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F22CDC9D23C8799500D6E12C /* NSObject+QJCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QJCoding.h"; sourceTree = "<group>"; };
+		F22CDC9E23C8799500D6E12C /* NSObject+QJCoding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QJCoding.m"; sourceTree = "<group>"; };
 		F2984FF51F025DCF00E5F183 /* NSMutableArray+MethodExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MethodExchange.h"; sourceTree = "<group>"; };
 		F2984FF61F025DCF00E5F183 /* NSMutableArray+MethodExchange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MethodExchange.m"; sourceTree = "<group>"; };
 		F2ABC4061F02471D00008559 /* RuntimeDome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeDome.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,14 +98,12 @@
 		F22B583F1F03482D0026A9D3 /* test runtime */ = {
 			isa = PBXGroup;
 			children = (
-				F2ABC43F1F02475400008559 /* QJCoderEntity.h */,
-				F2ABC4401F02475400008559 /* QJCoderEntity.m */,
 				F2984FF51F025DCF00E5F183 /* NSMutableArray+MethodExchange.h */,
 				F2984FF61F025DCF00E5F183 /* NSMutableArray+MethodExchange.m */,
-				F2ABC40F1F02471D00008559 /* ViewController.h */,
-				F2ABC4101F02471D00008559 /* ViewController.m */,
 				F2CD04A52359A82200BC15EA /* NSObject+QJExtension.h */,
 				F2CD04A62359A82200BC15EA /* NSObject+QJExtension.m */,
+				F22CDC9D23C8799500D6E12C /* NSObject+QJCoding.h */,
+				F22CDC9E23C8799500D6E12C /* NSObject+QJCoding.m */,
 			);
 			name = "test runtime";
 			sourceTree = "<group>";
@@ -133,6 +134,10 @@
 				F22B583F1F03482D0026A9D3 /* test runtime */,
 				F2ABC40C1F02471D00008559 /* AppDelegate.h */,
 				F2ABC40D1F02471D00008559 /* AppDelegate.m */,
+				F2ABC43F1F02475400008559 /* QJCoderEntity.h */,
+				F2ABC4401F02475400008559 /* QJCoderEntity.m */,
+				F2ABC40F1F02471D00008559 /* ViewController.h */,
+				F2ABC4101F02471D00008559 /* ViewController.m */,
 				F2CD04A82359ABE100BC15EA /* QJTestMode.h */,
 				F2CD04A92359ABE100BC15EA /* QJTestMode.m */,
 				F2ABC4121F02471D00008559 /* Main.storyboard */,
@@ -311,6 +316,7 @@
 				F2ABC4111F02471D00008559 /* ViewController.m in Sources */,
 				F2ABC4171F02471D00008559 /* RuntimeDome.xcdatamodeld in Sources */,
 				F2ABC40E1F02471D00008559 /* AppDelegate.m in Sources */,
+				F22CDC9F23C8799500D6E12C /* NSObject+QJCoding.m in Sources */,
 				F2984FF71F025DCF00E5F183 /* NSMutableArray+MethodExchange.m in Sources */,
 				F2ABC4411F02475400008559 /* QJCoderEntity.m in Sources */,
 				F2CD04A72359A82200BC15EA /* NSObject+QJExtension.m in Sources */,

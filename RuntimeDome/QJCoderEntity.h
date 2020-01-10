@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QJCoderEntity : NSObject<NSCoding>
+@interface QJCoderEntity : NSObject
 
 @property (nonatomic , assign)NSInteger age ;
 @property (nonatomic , copy) NSString * name ;
