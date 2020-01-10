@@ -120,9 +120,73 @@
     };
     QJTestMode * mode = [QJTestMode qj_modeWithDic:dic];
     
+    NSArray * array = @[[dic copy],[dic copy],[dic copy]];
+    NSArray * modeArray = [QJTestMode modelArrayWithDicArray:array];
+    
+    [self isa_metaClass_And_super_class];
+    
 }
 
+/// objc_class 中: isa 、元类 和 super_class 关系
+-(void)isa_metaClass_And_super_class {
+    //objc_class 中: isa 、元类 和 super_class 关系 https://upload-images.jianshu.io/upload_images/4349969-24a6392d9a2a1d2c.png?imageMogr2/auto-orient/strip|imageView2/2/w/807
+    /**
+         Class object_getClass(id _Nullable obj) {
+     
+            return objc->isa ;
+     
+            // 伟代码 ： 经编译的时候 isa 就已经赋值了
+            if ( objc 是对象 ) {
+                return objc->isa ;
+            } else if (objc 不是元类) {
+                return objc->isa ; // isa 指向的是自身元类
+            } else if (objc 不是 NSObject基元类) {
+                return objc->isa ;  // isa 指向的是元类
+            } else {
+                return objc ;  // isa 指向的是元类
+            }
+         }
+     */
+    // 1. isa 指向的是元类 ， 元类的isa 指向 基元类
+    Class cls = object_getClass(self);              // ViewController(0x10abea590)  非元类
+    Class metaClass1 = object_getClass(cls);        // ViewController(0x10abea568)  元类
+    Class metaClass2 = object_getClass(metaClass1); // NSObject(0x7fff89cc4558)     基元类
+    Class metaClass3 = object_getClass(metaClass2); // NSObject(0x7fff89cc4558)     基元类
+    Class metaClass4 = object_getClass(metaClass3); // NSObject(0x7fff89cc4558)     基元类
+    Class metaClass5 = object_getClass(metaClass4); // NSObject(0x7fff89cc4558)     基元类
+    NSLog(@"对象及类的isa ：%@(%p) -> %@(%p) -> %@(%p) -> %@(%p) -> %@(%p) -> %@(%p) ->",cls,cls, metaClass1, metaClass1, metaClass2, metaClass2, metaClass3, metaClass3, metaClass4, metaClass4, metaClass5, metaClass5 );
 
+    BOOL isMetaClass = class_isMetaClass(cls);          // NO
+    BOOL isMetaClass1 = class_isMetaClass(metaClass1);  // YES
+    BOOL isMetaClass2 = class_isMetaClass(metaClass2);  // YES
+    BOOL isMetaClass3 = class_isMetaClass(metaClass3);  // YES
+    BOOL isMetaClass4 = class_isMetaClass(metaClass4);  // YES
+    BOOL isMetaClass5 = class_isMetaClass(metaClass5);  // YES
+
+    
+    // 2. super_class 继承链,最终为 Nil
+    /**
+        class_getSuperclass(Class cls) {
+            return cls->super_class ;
+        }
+     */
+    Class cls_ = [ViewController class];                    // ViewController(0x10abea590)
+    Class metaClass1_ = class_getSuperclass(cls_);          // UIViewController(0x7fff8976fd38)
+    Class metaClass2_ = class_getSuperclass(metaClass1_);   // UIResponder(0x7fff8978c348)
+    Class metaClass3_ = class_getSuperclass(metaClass2_);   // NSObject(0x7fff89cc4580)
+    Class metaClass4_ = class_getSuperclass(metaClass3_);   // (null)(0x0)
+    Class metaClass5_ = class_getSuperclass(metaClass4_);   // (null)(0x0)
+    NSLog(@"类的superclass ：%@(%p) -> %@(%p) -> %@(%p) -> %@(%p) -> %@(%p) -> %@(%p) ->",cls_,cls_ , metaClass1_, metaClass1_, metaClass2_, metaClass2_, metaClass3_, metaClass3_, metaClass4_, metaClass4_, metaClass5_, metaClass5_ );
+
+    BOOL isMetaClass_ = class_isMetaClass(cls_);            // NO
+    BOOL isMetaClass1_ = class_isMetaClass(metaClass1_);    // NO
+    BOOL isMetaClass2_ = class_isMetaClass(metaClass2_);    // NO
+    BOOL isMetaClass3_ = class_isMetaClass(metaClass3_);    // NO
+    BOOL isMetaClass4_ = class_isMetaClass(metaClass4_);    // NO
+    BOOL isMetaClass5_ = class_isMetaClass(metaClass5_);    // NO
+}
+
+/// 归档 与 解档
 -(void)useInCoding
 {
     QJCoderEntity * entity = [[QJCoderEntity alloc] init];
