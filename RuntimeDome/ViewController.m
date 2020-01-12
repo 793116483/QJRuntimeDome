@@ -55,11 +55,17 @@
     free(ivars);
     
     // 获取对象方法列表
-    Method * methods = class_copyMethodList([self class], &count);
+    Method * methods = class_copyMethodList([[[self superclass] superclass] superclass], &count);
     for (int index = 0; index < count; index++) {
         Method method = methods[index];
         NSString * methodName = NSStringFromSelector(method_getName(method));
         NSLog(@"方法 name = %@",methodName);
+        
+        // 方法的实现调用入口，
+        IMP functionImplementaion = method_getImplementation(method) ;
+        
+        /// 如果 method 是从 对象的普通类 内获取的时，则 method 是对象方法；如果是从对象的元类 内获取的时，则 method 是类方法
+        // objc_msgSend(self, method_getName(method));
     }
     free(methods);
     
@@ -147,7 +153,11 @@
             }
          }
      */
-    // 1. isa 指向的是元类 ， 元类的isa 指向 基元类
+    
+    /// 重点：1、所有类方法都是存放在 元类的方法列表中；
+    /// 2、分类的方法都是先加入到方法列表中，也就是调用方法是，同方法名，分类中的方法是先调用的，自身的方法排在后面，如果需要调用自身的方法，那么就要手动使用 runtime 获取方法列表，然后通过方法名对比，找到最后一次出现的方法，就是自定义类的实现方法
+    
+    // 1. isa 指向的是元类 ， 元类的isa 指向 基元类 ；
     Class cls = object_getClass(self);              // ViewController(0x10abea590)  非元类
     Class metaClass1 = object_getClass(cls);        // ViewController(0x10abea568)  元类
     Class metaClass2 = object_getClass(metaClass1); // NSObject(0x7fff89cc4558)     基元类
